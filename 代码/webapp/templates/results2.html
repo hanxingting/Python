@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/hf.css" />
+    <div>
+    <title>中国博物馆分析</title>
+    <h1>中国博物馆相关数据可视化分析</h1>
+    <h4>你好\(@^0^@)/我们这里是对中国博物馆的分析！</h4>
+    <h4>通过观察交互图里面的内容，我们可以看见，近几年中国博物馆的数量呈现激增的趋势，在区域分布上东多西少的局面和我们的基础印象基本一致，国家财政支持对于博物馆起着不小的影响，但并不是决定性因素。经济水平、人们的人均可支配收入与博物馆之间也存在着一些相关关系。在与公共图书馆的对比中我们也可以看见，博物馆数量的多寡、分布和公共图书馆也存在一定量的联系。</h4>
+    <h4>在这里，你可以看到通过政治、经济、文化等各种不同角度的可视化研究。我们希望你能够在这一场旅途中收获到与博物馆相关的知识。这样，我们的目的算是达到了!</h4>
+    <h4>偷偷再告诉你，下面这几个按钮分别是：博物馆机构数、博物馆收藏品、博物馆从业人员、博物馆参观者、GDP与博物馆的关系分析、人口数与博物馆的相关分析、博物馆收藏品与图书馆藏书量相关分析、各地公共文化财政支出与博物馆相关关系分析、各地文化体育与传媒财政支出相关关系分析、中国各地图书馆数量与博物馆数量相关分析和人均可支配收入与博物馆的相关联系。</h4>
+    <h6>ps：下面还有我们经过清洗之后所用的数据表哦！</h6>
+    <h4>点击下面这个按钮，开启你的旅程吧！</h4>
+    </div>
+</head>
+<body>
+<form method="POST" action="/first">
+    <select name="the_region_selected">
+        {% for item in the_select_region %}
+            <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select>
+<p><input value='Do it!' type='SUBMIT'></p>
+</form>
+
+{{ the_plot_all|safe }}
+
+<h3>
+    {{ echart_desc }}
+</h3>
+<div style="text-align: center;">
+    {{ the_res|safe }}
+</div>
+
+</body>
+</html>
